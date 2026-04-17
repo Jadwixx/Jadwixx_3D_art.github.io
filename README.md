@@ -1,1 +1,1 @@
-# Jawdixx_3D_art.github.io
+# Jadwixx_3D_art.github.io
