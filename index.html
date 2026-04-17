@@ -3,44 +3,126 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>3D Artist Portfolio</title>
+    <title>Paulina Leśniewska - 3D Artist Portfolio</title>
     
     <script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/3.4.0/model-viewer.min.js"></script>
 
     <style>
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
         body {
-            font-family: Arial, sans-serif;
-            background-color: #1a1a1a;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #111111 0%, #1e1e1e 100%);
             color: #ffffff;
             text-align: center;
             margin: 0;
             padding: 50px 20px;
+            min-height: 100vh;
+            animation: fadeIn 1s ease-out;
         }
-        model-viewer {
+
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+            letter-spacing: 1px;
+        }
+
+        .subtitle {
+            color: #aaaaaa;
+            margin-bottom: 40px;
+            font-size: 1.1rem;
+        }
+
+        .main-model {
             width: 100%;
-            max-width: 800px;
-            height: 500px;
+            max-width: 900px;
+            height: 600px;
             margin: 0 auto;
-            background-color: #2a2a2a;
-            border-radius: 10px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.5);
+            background-color: transparent;
+            outline: none;
+        }
+
+        .gallery {
+            display: flex;
+            justify-content: center;
+            gap: 50px;
+            flex-wrap: wrap;
+            margin-top: 80px;
+            padding-bottom: 50px;
+        }
+
+        .gallery-model {
+            width: 100%;
+            max-width: 400px;
+            height: 400px;
+            background-color: transparent;
+            outline: none;
+            transition: transform 0.4s ease-out; 
+        }
+
+        .gallery-model:hover {
+            transform: scale(1.15);
+            z-index: 10;
+        }
+
+        .instruction {
+            color: #777777;
+            font-size: 0.9rem;
+            margin-top: 10px;
+        }
+        
+        hr {
+            border: 0;
+            height: 1px;
+            background: linear-gradient(to right, transparent, #555, transparent);
+            margin: 60px auto;
+            width: 50%;
         }
     </style>
 </head>
 <body>
 
     <h1>Hi, I'm Paulina Leśniewska</h1>
-    <p>Beginer 3D Character/Environment Artist based in Poland.</p>
+    <p class="subtitle">Beginner 3D Character/Environment Artist based in Poland.</p>
 
     <model-viewer 
+        class="main-model"
         src="old_men_and_the_monster.glb" 
-        alt="A 3D model of my artwork" 
+        alt="Main 3D artwork" 
         auto-rotate 
         camera-controls 
-        shadow-intensity="1">
+        shadow-intensity="1"
+        exposure="1.2">
     </model-viewer>
 
-    <p>Feel free to drag, zoom, and rotate the model above!</p>
+    <p class="instruction">Feel free to drag, zoom, and rotate the model above!</p>
+
+    <hr>
+
+    <h2>More Projects</h2>
+    
+    <div class="gallery">
+        <model-viewer 
+            class="gallery-model"
+            src="model2.glb" 
+            alt="Second 3D artwork" 
+            auto-rotate 
+            camera-controls 
+            shadow-intensity="1">
+        </model-viewer>
+
+        <model-viewer 
+            class="gallery-model"
+            src="model3.glb" 
+            alt="Third 3D artwork" 
+            auto-rotate 
+            camera-controls 
+            shadow-intensity="1">
+        </model-viewer>
+    </div>
 
 </body>
 </html>
