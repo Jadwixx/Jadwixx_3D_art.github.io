@@ -56,8 +56,7 @@
             margin-bottom: 30px;
             font-size: 1.1rem;
         }
-
-        /* Nowa sekcja O mnie */
+        
         .about-section {
             max-width: 800px;
             margin: 0 auto 50px auto;
@@ -117,4 +116,77 @@
             border: 0;
             height: 1px;
             background: linear-gradient(to right, transparent, #555, transparent);
-            margin:
+            margin: 60px auto;
+            width: 50%;
+        }
+    </style>
+</head>
+<body>
+
+    <button class="lang-btn" id="langToggle" onclick="switchLang()">PL</button>
+
+    <h1 class="lang" data-en="Hi, I'm Paulina Leśniewska" data-pl="Cześć, jestem Paulina Leśniewska">Hi, I'm Paulina Leśniewska</h1>
+    <p class="subtitle lang" data-en="Beginner 3D Character/Environment Artist." data-pl="Początkująca Artystka 3D (Postacie/Środowisko).">Beginner 3D Character/Environment Artist.</p>
+
+    <div class="about-section">
+        <h2 class="lang" data-en="About Me" data-pl="O mnie">About Me</h2>
+        <p class="lang" 
+           data-en="I am a second-year Applied Computer Science student with a profound passion for 2D and 3D graphics. In my projects, I prioritize diligence, attention to detail, and continuous skill development. I approach every task with a strong work ethic and deep commitment, which allows me to deliver highly polished artwork. In my free time, I draw inspiration from pop culture—I am a huge anime enthusiast and an avid reader. These interests fuel my imagination and allow me to bring a unique, creative perspective to designing digital worlds and characters." 
+           data-pl="Jestem studentką drugiego roku informatyki stosowanej, z wielką pasją do grafiki 2D i 3D. W swoich projektach stawiam na sumienność, dbałość o detale oraz ciągły rozwój. Zawsze z pełnym zaangażowaniem podchodzę do powierzonych mi zadań, co pozwala mi dostarczać dopracowane prace. W wolnym czasie czerpię inspirację z popkultury – jestem wielką fanką anime oraz zapaloną czytelniczką książek. Te zainteresowania napędzają moją wyobraźnię i pozwalają mi na nieszablonowe podejście do kreowania cyfrowych światów i postaci.">
+           I am a second-year Applied Computer Science student with a profound passion for 2D and 3D graphics. In my projects, I prioritize diligence, attention to detail, and continuous skill development. I approach every task with a strong work ethic and deep commitment, which allows me to deliver highly polished artwork. In my free time, I draw inspiration from pop culture—I am a huge anime enthusiast and an avid reader. These interests fuel my imagination and allow me to bring a unique, creative perspective to designing digital worlds and characters.
+        </p>
+    </div>
+
+    <model-viewer 
+    class="main-model"
+    src="old_men_and_the_monster1.glb" 
+    alt="Main 3D artwork" 
+    auto-rotate 
+    camera-controls 
+    shadow-intensity="2" 
+    environment-image="neutral" 
+    exposure="0.3">
+    </model-viewer>
+
+    <p class="instruction lang" data-en="Feel free to drag, zoom, and rotate the model above!" data-pl="Śmiało! Możesz obracać i przybliżać model powyżej!">Feel free to drag, zoom, and rotate the model above!</p>
+
+    <hr>
+
+    <h2 class="lang" data-en="More Projects" data-pl="Więcej projektów">More Projects</h2>
+    
+    <div class="gallery">
+        <model-viewer 
+            class="gallery-model"
+            src="model2.glb" 
+            alt="Second 3D artwork" 
+            auto-rotate 
+            camera-controls 
+            shadow-intensity="1">
+        </model-viewer>
+
+        <model-viewer 
+            class="gallery-model"
+            src="model3.glb" 
+            alt="Third 3D artwork" 
+            auto-rotate 
+            camera-controls 
+            shadow-intensity="1">
+        </model-viewer>
+    </div>
+
+    <script>
+        let isEnglish = true;
+
+        function switchLang() {
+            isEnglish = !isEnglish;
+            const elements = document.querySelectorAll('.lang');
+            elements.forEach(el => {
+                el.innerText = isEnglish ? el.getAttribute('data-en') : el.getAttribute('data-pl');
+            });
+            const btn = document.getElementById('langToggle');
+            btn.innerText = isEnglish ? 'PL' : 'EN';
+        }
+    </script>
+
+</body>
+</html>
