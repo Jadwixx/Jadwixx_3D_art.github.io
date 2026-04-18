@@ -17,6 +17,11 @@
             to { opacity: 1; transform: translateY(0); }
         }
 
+        @keyframes slideDown {
+            from { transform: translateY(-100%); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             background-color: #0d0d0d;
@@ -74,6 +79,7 @@
             box-sizing: border-box;
             flex-wrap: wrap;
             gap: 20px;
+            animation: slideDown 0.8s ease-out forwards;
         }
 
         .nav-links {
@@ -87,11 +93,28 @@
             font-size: 1rem;
             font-weight: 500;
             transition: color 0.3s;
+            position: relative;
+            padding-bottom: 5px;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: 0;
+            left: 0;
+            background-color: #8a2be2;
+            transition: width 0.3s ease-in-out;
         }
 
         .nav-links a:hover {
             color: #ffffff;
             text-shadow: 0 0 8px rgba(255,255,255,0.5);
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
         }
 
         .lang-btn {
@@ -102,12 +125,13 @@
             border-radius: 5px;
             cursor: pointer;
             font-size: 0.9rem;
-            transition: background-color 0.3s;
+            transition: background-color 0.3s, transform 0.2s;
             margin-left: auto;
         }
 
         .lang-btn:hover {
             background-color: #555;
+            transform: scale(1.05);
         }
 
         h1 {
@@ -190,10 +214,40 @@
             width: 50%;
         }
 
+        .contact-section {
+            margin-top: 60px;
+            padding-bottom: 30px;
+        }
+        
+        .contact-links {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            margin-top: 20px;
+        }
+
+        .contact-links a {
+            color: #ffffff;
+            text-decoration: none;
+            font-size: 1.2rem;
+            padding: 10px 20px;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 8px;
+            transition: all 0.3s ease;
+        }
+
+        .contact-links a:hover {
+            background: rgba(138, 43, 226, 0.2);
+            border-color: #8a2be2;
+            transform: translateY(-3px);
+        }
+
         @media (max-width: 600px) {
             .navbar { flex-direction: column; padding: 10px; gap: 10px;}
             .lang-btn { margin-left: 0; }
-            body { padding-top: 140px; }
+            body { padding-top: 180px; }
+            .contact-links { flex-direction: column; gap: 20px; }
         }
     </style>
 </head>
@@ -208,8 +262,8 @@
     <nav class="navbar">
         <div class="nav-links">
             <a href="#about" class="lang" data-en="About Me" data-pl="O mnie">About Me</a>
-            <a href="#main-project" class="lang" data-en="Main Project" data-pl="Główny projekt">Main Project</a>
-            <a href="#more-projects" class="lang" data-en="More Projects" data-pl="Więcej projektów">More Projects</a>
+            <a href="#projects" class="lang" data-en="Projects" data-pl="Projekty">Projects</a>
+            <a href="#contact" class="lang" data-en="Contact" data-pl="Kontakt">Contact</a>
         </div>
         <button class="lang-btn" id="langToggle" onclick="switchLang()">PL</button>
     </nav>
@@ -226,7 +280,7 @@
         </p>
     </div>
 
-    <div id="main-project" class="section">
+    <div id="projects" class="section">
         <model-viewer 
         class="main-model"
         src="old_men_and_the_monster1.glb" 
@@ -239,11 +293,9 @@
         </model-viewer>
 
         <p class="instruction lang" data-en="Feel free to drag, zoom, and rotate the model above!" data-pl="Śmiało! Możesz obracać i przybliżać model powyżej!">Feel free to drag, zoom, and rotate the model above!</p>
-    </div>
 
-    <hr>
+        <hr>
 
-    <div id="more-projects" class="section">
         <h2 class="lang" data-en="More Projects" data-pl="Więcej projektów">More Projects</h2>
         
         <div class="gallery">
@@ -264,6 +316,16 @@
                 camera-controls 
                 shadow-intensity="1">
             </model-viewer>
+        </div>
+    </div>
+
+    <hr>
+
+    <div id="contact" class="contact-section section">
+        <h2 class="lang" data-en="Contact" data-pl="Kontakt">Contact</h2>
+        <div class="contact-links">
+            <a href="https://www.linkedin.com/feed/" target="_blank">LinkedIn</a>
+            <a href="https://www.instagram.com/jadwixx_the_art/?next=%2Fjadwixx16%2F" target="_blank">Instagram</a>
         </div>
     </div>
 
