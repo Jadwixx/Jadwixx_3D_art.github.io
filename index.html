@@ -22,18 +22,57 @@
             padding: 50px 20px;
             min-height: 100vh;
             animation: fadeIn 1s ease-out;
+            position: relative;
+        }
+
+        /* Stylizacja przycisku do zmiany języka */
+        .lang-btn {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background-color: #333;
+            color: #fff;
+            border: 1px solid #555;
+            padding: 10px 15px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 0.9rem;
+            transition: background-color 0.3s;
+        }
+
+        .lang-btn:hover {
+            background-color: #555;
         }
 
         h1 {
             font-size: 2.5rem;
             margin-bottom: 10px;
             letter-spacing: 1px;
+            margin-top: 30px;
         }
 
         .subtitle {
             color: #aaaaaa;
-            margin-bottom: 40px;
+            margin-bottom: 30px;
             font-size: 1.1rem;
+        }
+
+        /* Nowa sekcja O mnie */
+        .about-section {
+            max-width: 800px;
+            margin: 0 auto 50px auto;
+            background-color: rgba(255, 255, 255, 0.05);
+            padding: 30px 40px;
+            border-radius: 10px;
+            text-align: center;
+            line-height: 1.6;
+            color: #cccccc;
+        }
+
+        .about-section h2 {
+            color: #ffffff;
+            margin-top: 0;
+            font-size: 1.5rem;
         }
 
         .main-model {
@@ -50,7 +89,7 @@
             justify-content: center;
             gap: 50px;
             flex-wrap: wrap;
-            margin-top: 80px;
+            margin-top: 40px;
             padding-bottom: 50px;
         }
 
@@ -78,52 +117,4 @@
             border: 0;
             height: 1px;
             background: linear-gradient(to right, transparent, #555, transparent);
-            margin: 60px auto;
-            width: 50%;
-        }
-    </style>
-</head>
-<body>
-
-    <h1>Hi, I'm Paulina Leśniewska</h1>
-    <p class="subtitle">Beginner 3D Character/Environment Artist.</p>
-
-    <model-viewer 
-    class="main-model"
-    src="old_men_and_the_monster1.glb" 
-    alt="Main 3D artwork" 
-    auto-rotate 
-    camera-controls 
-    shadow-intensity="2" 
-    environment-image="neutral" 
-    exposure="0.3">
-    </model-viewer>
-
-    <p class="instruction">Feel free to drag, zoom, and rotate the model above!</p>
-
-    <hr>
-
-    <h2>More Projects</h2>
-    
-    <div class="gallery">
-        <model-viewer 
-            class="gallery-model"
-            src="model2.glb" 
-            alt="Second 3D artwork" 
-            auto-rotate 
-            camera-controls 
-            shadow-intensity="1">
-        </model-viewer>
-
-        <model-viewer 
-            class="gallery-model"
-            src="model3.glb" 
-            alt="Third 3D artwork" 
-            auto-rotate 
-            camera-controls 
-            shadow-intensity="1">
-        </model-viewer>
-    </div>
-
-</body>
-</html>
+            margin:
