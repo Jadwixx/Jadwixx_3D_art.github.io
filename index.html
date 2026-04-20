@@ -180,24 +180,44 @@
         .gallery {
             display: flex;
             justify-content: center;
+            align-items: flex-start;
             gap: 50px;
             flex-wrap: wrap;
             margin-top: 40px;
             padding-bottom: 50px;
         }
 
-        .gallery-model {
-            width: 100%;
+        .gallery-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
             max-width: 400px;
+            width: 100%;
+        }
+
+        .gallery-model, .gallery-img {
+            width: 100%;
             height: 400px;
             background-color: transparent;
             outline: none;
             transition: transform 0.4s ease-out; 
         }
 
-        .gallery-model:hover {
+        .gallery-img {
+            object-fit: cover;
+            border-radius: 8px;
+        }
+
+        .gallery-model:hover, .gallery-img:hover {
             transform: scale(1.15);
             z-index: 10;
+        }
+
+        .gallery-caption {
+            margin-top: 15px;
+            color: #bbbbbb;
+            font-size: 0.95rem;
+            line-height: 1.4;
         }
 
         .instruction {
@@ -299,23 +319,25 @@
         <h2 class="lang" data-en="More Projects" data-pl="Więcej projektów">More Projects</h2>
         
         <div class="gallery">
-            <model-viewer 
-                class="gallery-model"
-                src="fountain.glb" 
-                alt="Second 3D artwork" 
-                auto-rotate 
-                camera-controls 
-                shadow-intensity="1">
-            </model-viewer>
+            <div class="gallery-item">
+                <img class="gallery-img" src="fountain.png" alt="Fountain Render">
+                <p class="lang gallery-caption" 
+                   data-en="Initial fountain model for my project." 
+                   data-pl="Początkowy model fontanny mojego projektu.">
+                   Initial fountain model for my project.
+                </p>
+            </div>
 
-            <model-viewer 
-                class="gallery-model"
-                src="model3.glb" 
-                alt="Third 3D artwork" 
-                auto-rotate 
-                camera-controls 
-                shadow-intensity="1">
-            </model-viewer>
+            <div class="gallery-item">
+                <model-viewer 
+                    class="gallery-model"
+                    src="model3.glb" 
+                    alt="Third 3D artwork" 
+                    auto-rotate 
+                    camera-controls 
+                    shadow-intensity="1">
+                </model-viewer>
+            </div>
         </div>
     </div>
 
